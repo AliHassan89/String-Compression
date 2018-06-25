@@ -26,19 +26,16 @@ public class CCI_Chap1_Compression
         if(str.length() <= 2)
             return str;
         
-        int count = 0;
-        char prev = '\0';
+        int count = 1;
+        char prev = str.charAt(0);
         String compressed = "";
         
-        for(int i=0; i<str.length(); i++)
+        for(int i=1; i<str.length(); i++)
         {
-            if(str.charAt(i) == prev || prev == '\0')
-            {
-                prev = str.charAt(i);
+            if(str.charAt(i) == prev){
                 count++;
             }
-            else
-            {
+            else{
                 compressed += prev + Integer.toString(count);
                 count = 1; 
                 prev = str.charAt(i);
